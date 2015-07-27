@@ -2,16 +2,22 @@
 layout: default
 ---
 
-<article class="post">
-  <h1>{{ page.title }}</h1>
+<div class="post">
+	<div class="header">
+		<div class="title">
+			<h2>{{ page.title }}</h2>
+		</div>
+	</div>
+	<div class="post-meta">
+		<ul>
+			<li>Written on: <span class="meta-elem">{{ page.date | date: "%Y/%m/%d" }}  </span></li>
+			<li> By: <span class="meta-elem">{{page.author}}</span> </li>
+		</ul>
+	</div>
 
-  <div class="entry">
-    {{ content }}
-  </div>
+	<div class="content">
+		{{ content}}
+	</div>
+</div>
 
-  <div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
-  </div>
 
-  {% include disqus.html %}
-</article>

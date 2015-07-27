@@ -3,16 +3,30 @@ layout: default
 ---
 
 <div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
-
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
+	<div class="header">
+		<div class="title"><h2>Posts</h2></div>
+		<div class="masthead">
+			<p>
+				A list of all the posts written to date in reverse chronologicall order. (Soon (hopefully) to be improoved with a searchable/filterable table). For a list of projects - finished or not - go to the projects page. For longer writtings, and things that are more of an artcle nature, go to the articles page. 
+			</p>
+		</div>
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<th class="date">date</th>
+				<th class="title">title</th>
+				<th class="excerpt">excerpt</th>
+			</tr>
+		</thead>
+		<tbody>
+			{%for post in site.posts%}
+				<tr>
+					<td class="date">{{ post.date | date: "%Y/%m/%d"  }}</td>
+					<td class="title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</td>
+					<td class="excerpt">{{ post.excerpt }}</td>
+				</tr>
+			{%endfor%}
+		</tbody>
+	</table>
 </div>
